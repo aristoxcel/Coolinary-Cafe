@@ -1,9 +1,13 @@
 import { useContext } from "react"
 import { AuthContext } from "../../Providers/AuthProvider"
+import { useNavigate } from "react-router-dom"
+import toast from 'react-hot-toast'
+import axios from 'axios'
 
 
 function Form() {
     const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleSubmitForm=async(e)=>{
       e.preventDefault()
@@ -42,6 +46,19 @@ function Form() {
       procedure,
       feedback,
       count: 0,
+    }
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/food`,
+        FoodData
+      )
+      console.log(data)
+      toast.success('Job Data Updated Successfully!')
+      // navigate('/my-posted-jobs')
+    } catch (err) {
+      console.log(err)
+      navigate('/about')
     }
 
     console.table(FoodData)

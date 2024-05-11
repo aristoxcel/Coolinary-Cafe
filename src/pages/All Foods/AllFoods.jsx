@@ -1,8 +1,18 @@
+import { useContext, useEffect } from "react"
 import Card from "../../components/Card"
 import Header from "../../components/Header"
+import { AuthContext } from "../../Providers/AuthProvider"
 
 
 function AllFoods() {
+  const {user}=useContext(AuthContext)
+
+
+  useEffect(()=>{
+
+  },[])
+
+  
   return (
     <div>
       <Header image={'banner4.jpg'}  text={"All Food Items"}></Header>
