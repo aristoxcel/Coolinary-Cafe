@@ -5,69 +5,109 @@ import { AuthContext } from "../../Providers/AuthProvider"
 function Form() {
     const {user} = useContext(AuthContext)
 
-    const handleSubmitForm=()=>{
+    const handleSubmitForm=async(e)=>{
+      e.preventDefault()
+    const form = e.target
+    const food_name = form.food_name.value
+    const cooker_email = form.cooker_email .value
+    const cooker_name = form.cooker_name.value
+    const cooker_img = user?.photoURL
+    const order_time = new Date()
+    const category = form.category.value
+    const price = parseFloat(form.price.value)
+    const image = form.image.value
+    const country = form.country.value
+    const quantity = parseInt(form.quantity.value)
+    const item1 = form.item1.value
+    const item2 = form.item2.value
+    const item3 = form.item3.value
+    const procedure = form.procedure.value
+    const feedback = form.feedback.value
 
+
+    const FoodData = {
+      food_name,
+      cooker_email,
+      cooker_name,
+      cooker_img,
+      order_time,
+      category,
+      price,
+      image,
+      country,
+      quantity,
+      ingredients:[
+        item1, item2, item3
+      ],
+      procedure,
+      feedback,
+      count: 0,
+    }
+
+    console.table(FoodData)
     }
   return (
-    <div className="mt-72 lg:mt-[600px] py-10 px-4">
-    <div className="w-4/5 flex md:flex-row flex-col justify-between gap-5 mx-auto">
+    <div className="mt-52 lg:mt-[550px] py-10 px-4 md:px-0 lg:px-4">
+    <div className="w-4/5 flex md:flex-row flex-col justify-between gap-5 md:gap-2 lg:gap-5 mx-auto">
       <div className="md:basis-1/3 px-5">
-        <h1 className="text-2xl font-poet font-bold text-sky-900 text-center mb-6 ">Instructions for Add Data</h1>
-        <ul className="text-base text-base-600 font-ubuntu ">
-          <li>Clear and User-Friendly Interface: Design the add form with a clear and intuitive layout. Use easy-to-understand labels and instructions to guide users through the process.</li>
-          <li>Required Fields: Determine which fields are essential for users to fill out and mark them as required. These might include fields such as Title, Description, Category, and Image.</li>
-          <li>Title: Ask users to provide a title for their submission. This could be the name of the subcategory or a brief description.</li>
-          <li>Description: Provide a text box where users can write a detailed description of the Ceramics and Pottery subcategory they are adding. Encourage them to include relevant information such as techniques used, materials, and any special features.</li>
-          <li>Category: Include a dropdown menu or radio buttons for users to select the main category or subcategory to which their submission belongs. For example, categories could include Hand-built Pottery, Wheel-thrown Ceramics, Sculptural Ceramics, Raku Pottery, etc.</li>
-          <li>Image Upload: Allow users to upload images of their Ceramics and Pottery subcategory. Provide clear instructions on accepted file formats and maximum file size. You may want to require at least one image to accompany each submission.</li>
+        <h1 className="text-2xl font-poet font-bold text-sky-900 text-left mb-6 ">Instructions for Adding Data</h1>
+        <ul className="text-base text-teal-900 font-ubuntu opacity-70 pl-4">
+          <li> Write the Name of Food Clearly</li>
+          <li> All *sign field must required</li>
+          <li> Please give clear and decorated Image of Food</li>
+          <li> Give your selling amount/Pcs of food item</li>
+          <li> Give a short review of your food tasty</li>
+          <li> Give ingredients name and procedure</li>
         </ul>
       </div>
 
       <div className="md:basis-3/5 mx-auto text-center">
-        <h1 className="text-2xl font-franklin font-bold text-sky-900 text-center mb-2">Add Data</h1>
+        <h1 className="text-2xl font-poet font-bold text-sky-900 text-center mb-2">Add Your Food</h1>
         <form className="py-8" onSubmit={handleSubmitForm}>
 
                          {/* Adder name and email */}
-   <div className="flex gap-3  p-3 justify-between">
+   <div className="flex gap-3  p-3 justify-between font-ubuntu">
                           <div className="relative w-full rounded-lg ">
                               <input
-                              className="w-full peer bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                              className="font-pacific w-full peer bg-transparent px-4 py-2 text-teal-600 focus:outline-none lowercase"
                               type="text"
                               defaultValue={user?.displayName}
                               disabled
-                              name="adder_name"
+                              name="cooker_name"
                               />
                           </div>
 
                           <div className="relative w-full  rounded-lg">
                             <input
-                            className="w-full peer  bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                            className="font-pacific w-full peer  bg-transparent px-4 py-2 text-teal-600 focus:outline-none"
                             type='email'
-                            name='adder_email'
+                            name='cooker_email'
                             disabled
                             defaultValue={user?.email}
                             />
                         </div>
           </div>
-          {/* Name and price */}
+          {/* Name and category */}
           <div className="flex gap-3  p-3 justify-between">
                   <div className="relative w-full rounded-lg ">
                       <input
-                      className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                      className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
                       type="text"
-                      placeholder="Name of Food" 
+                      placeholder="Name of Food *" 
                       name="food_name"
+                      required
                       />
 
                   </div>
 
                   <div className="relative w-full  rounded-lg">
                       <select
-                      className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-gray-400 focus:outline-none"
+                      className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-gray-400 focus:outline-none"
                       type="text"
-                      placeholder="" name="customize"
+                      placeholder="" name="category"
                       id="navigate_ui_input_33"
-                      ><option disabled selected>Category of Food</option>
+                      required
+                      ><option disabled selected>Category of Food *</option>
                       <option value={'International Cuisine'}>International Cuisine</option>
                       <option value={'Vegan Specialties'}>Vegan Specialties</option>
                       <option value={'Appetizers & Starters'}>Appetizers & Starters</option>
@@ -86,18 +126,20 @@ function Form() {
    <div className="flex gap-3  p-3 justify-between">
                           <div className="relative w-full rounded-lg ">
                               <input
-                              className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
-                              type="text"
-                              placeholder="Image Url of Food" name="image"
+                              className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                              type="url"
+                              placeholder="Image Url of Food *" name="image"
+                              required
                               />
                           </div>
 
                           <div className="relative w-full  rounded-lg">
                             <input
-                            className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                            className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
                             type="text"
-                            placeholder="Food Origin" 
+                            placeholder="Food Origin *" 
                             name="country"
+                            required
                             />
                         </div>
           </div>
@@ -107,18 +149,20 @@ function Form() {
    <div className="flex gap-3  p-3 justify-between">
                           <div className="relative w-full rounded-lg ">
                               <input
-                              className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                              className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
                               type="number"
-                              placeholder="Price of Food $" name="price"
+                              placeholder="Price of Food $ *" name="price"
+                              required
                               />
                           </div>
 
                           <div className="relative w-full  rounded-lg">
                             <input
-                            className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
+                            className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 py-2 text-[#1B8EF8] focus:outline-none"
                             type="number"
-                            placeholder="Quantity " 
+                            placeholder="Quantity *" 
                             name="quantity"
+                            required
                             />
                         </div>
           </div>
@@ -126,7 +170,7 @@ function Form() {
 
 
 {/* Ingredients*/}
-       <div className="rounded-lg border border-[#1B8EF8] bg-transparent mx-3">
+       <div className="rounded-lg border border-teal-600 bg-transparent mx-3">
         <h1 className="text-left text-gray-400 p-3">Ingredients:  [Write essential three items name in three box]</h1>
        <div className="flex gap-2  p-3 justify-between">
                   <div className="relative w-full rounded-lg ">
@@ -147,7 +191,7 @@ function Form() {
 <div className="flex gap-3  p-3 justify-between">
                   <div className="relative w-full rounded-lg ">
                       <textarea
-                      className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4    text-[#1B8EF8] focus:outline-none"
+                      className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4    text-[#1B8EF8] focus:outline-none"
                       rows={5}
                       placeholder="Cooking Procedure" name="procedure"
                       />
@@ -159,7 +203,7 @@ function Form() {
           <div className="flex gap-3  p-3 justify-between">
                   <div className="relative w-full rounded-lg ">
                       <textarea
-                      className="w-full peer rounded-lg border border-[#1B8EF8] bg-transparent px-4 text-[#1B8EF8] focus:outline-none"
+                      className="w-full peer rounded-lg border border-teal-600 bg-transparent px-4 text-[#1B8EF8] focus:outline-none"
                       rows={2}
                       placeholder="Feedback / Comment" name="feedback"
                       />
@@ -168,7 +212,7 @@ function Form() {
           </div>
    
          <div className="p-3">
-         <button type="submit" className=" rounded-lg text-xl w-full h-12 text-white bg-sky-800 overflow-hidden relative z-10 group hover:text-sky-900 duration-700">Submit<span className="bg-sky-900 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-50 size-32 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-sky-800 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-100 size-28 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-sky-600 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-200 size-24 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-sky-500 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-300 size-20 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-sky-500 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-[400ms] size-16 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span></button>
+         <button type="submit" className=" rounded-lg text-xl w-full h-12 text-white bg-teal-700 overflow-hidden relative z-10 group hover:text-teal-900 duration-700">Submit<span className="bg-teal-600 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-50 size-[3/4] rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-500 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-100 size-72 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-400 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-200 size-52 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-300 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-300 size-36 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-100 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-[400ms] size-28 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span></button>
          </div>
         </form>
       </div>
