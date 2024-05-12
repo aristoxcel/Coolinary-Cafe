@@ -9,14 +9,15 @@ function AllFoods() {
   const {user}=useContext(AuthContext)
 const [foods, setFoods]= useState([])
 const [filter, setFilter]= useState('')
+const [sort, setSort]= useState('')
 
   useEffect(()=>{
     const getData=async()=>{
-const {data}= await axios(`${import.meta.env.VITE_API_URL}/allfood?filter=${filter}`)
+const {data}= await axios(`${import.meta.env.VITE_API_URL}/allfood?filter=${filter}&sort=${sort}`)
 setFoods(data)
     }
     getData()
-  },[filter])
+  },[filter, sort])
 console.log(foods)
   
   return (
@@ -66,7 +67,11 @@ console.log(foods)
           </form>
           <div>
             <select
+              onChange={e=>{
+                setSort(e.target.value)
 
+              }}
+              value={sort}
 
               name='sort'
               id='sort'
