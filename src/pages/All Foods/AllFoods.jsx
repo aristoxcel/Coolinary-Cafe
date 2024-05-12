@@ -27,6 +27,15 @@ e.preventDefault()
 setSearch(searchText)
 }
   console.log(search)
+
+  const handleClear =()=>{
+    setFilter('')
+    setSort('')
+    setSearchText('')
+    setSearch('')
+  }
+
+
   return (
     <div>
       <Header image={'banner4.jpg'}  text={"All Food Items"}></Header>
@@ -90,7 +99,7 @@ setSearch(searchText)
               <option value='asc'>Low to High</option>
             </select>
           </div>
-          <button className='btn font-normal border-teal-600 px-4 py-2 text-lg text-teal-800 font-poet duration-200 hover:bg-teal-700 hover:text-white'>
+          <button onClick={handleClear} className='btn font-normal border-teal-600 px-4 py-2 text-lg text-teal-800 font-poet duration-200 hover:bg-teal-700 hover:text-white'>
             Clear All
           </button>
         </div>

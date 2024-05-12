@@ -54,7 +54,7 @@ function Form() {
         FoodData
       )
       console.log(data)
-      toast.success('Job Data Updated Successfully!')
+      toast.success('Food Data Updated Successfully!')
       navigate('/about')
     } catch (err) {
       console.log(err)

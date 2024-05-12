@@ -8,7 +8,7 @@ const {food_name,
     country,
     quantity}=food
   return (
-    <div className="mx-auto w-full overflow-hidden flex shadow-md hover:shadow-2xl border rounded-2xl" id="card">
+    <div className="mx-auto w-full overflow-hidden flex shadow-md shadow-teal-500 hover:shadow-2xl hover:shadow-teal-600 border rounded-2xl" id="card">
     <div className="card  bg-base-100 shadow-xl flex-grow ">
       <figure className="relative" data-aos="zoom-out"
    data-aos-easing="ease-in-sine"
