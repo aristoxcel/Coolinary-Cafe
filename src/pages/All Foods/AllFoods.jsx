@@ -10,16 +10,23 @@ function AllFoods() {
 const [foods, setFoods]= useState([])
 const [filter, setFilter]= useState('')
 const [sort, setSort]= useState('')
+const [search, setSearch] = useState('')
+const [searchText, setSearchText] = useState('')
 
   useEffect(()=>{
     const getData=async()=>{
-const {data}= await axios(`${import.meta.env.VITE_API_URL}/allfood?filter=${filter}&sort=${sort}`)
+const {data}= await axios(`${import.meta.env.VITE_API_URL}/allfood?filter=${filter}&sort=${sort}&search=${search}`)
 setFoods(data)
     }
     getData()
-  },[filter, sort])
-console.log(foods)
-  
+  },[filter, sort, search])
+
+
+const handleSearch =(e)=>{
+e.preventDefault()
+setSearch(searchText)
+}
+  console.log(search)
   return (
     <div>
       <Header image={'banner4.jpg'}  text={"All Food Items"}></Header>
@@ -49,19 +56,20 @@ console.log(foods)
             </select>
           </div>
 
-          <form >
+          <form onSubmit={handleSearch}>
             <div className='flex p-1 overflow-hidden border border-teal-600 rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-teal-400 focus-within:ring-teal-300'>
               <input
                 className='px-6 py-2 text-gray-700 placeholder-teal-800 font-poet bg-white outline-none focus:placeholder-transparent'
                 type='text'
+                onChange={e=>{
+                  setSearchText(e.target.value)
+
+                }}
+                value={searchText}
                 name='search'
                 placeholder='Food Item Name'
                 aria-label='Food Item Name'
               />
-
-              {/* <button className='px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
-                Search
-              </button> */}
               <button className="group relative z-10 py-2 w-32 overflow-hidden  tracking-wider rounded-md  bg-teal-700 text-xl text-white"><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-100 transition-transform duration-700 group-hover:scale-x-100 group-hover:duration-300"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-600 transition-transform duration-500 group-hover:scale-x-100 group-hover:duration-700"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-900 transition-transform duration-300 group-hover:scale-x-50 group-hover:duration-500"></span><span className="absolute z-10 text-center text-white opacity-0 duration-100 ease-out group-hover:opacity-100 group-hover:duration-700">Search</span>Search</button>
             </div>
           </form>
