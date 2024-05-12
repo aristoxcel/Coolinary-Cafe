@@ -55,10 +55,9 @@ function Form() {
       )
       console.log(data)
       toast.success('Job Data Updated Successfully!')
-      // navigate('/my-posted-jobs')
+      navigate('/about')
     } catch (err) {
       console.log(err)
-      navigate('/about')
     }
 
     console.table(FoodData)
@@ -127,12 +126,12 @@ function Form() {
                       ><option disabled selected>Category of Food *</option>
                       <option value={'International Cuisine'}>International Cuisine</option>
                       <option value={'Vegan Specialties'}>Vegan Specialties</option>
-                      <option value={'Appetizers & Starters'}>Appetizers & Starters</option>
-                      <option value={'Steaks & Grills'}>Steaks & Grills</option>
-                      <option value={'Burgers & Fries'}>Burgers & Fries</option>
-                      <option value={'Sandwiches & Wraps'}>Pizza & Sandwiches</option>
-                      <option value={'Cake & Pastry'}>Cake & Pastry</option>
-                      <option value={'Drinks & Juice'}>Drinks & Juice</option>
+                      <option value={'Appetizers'}>Appetizers & Starters</option>
+                      <option value={'Steaks'}>Steaks & Grills</option>
+                      <option value={'Burgers'}>Burgers & Fries</option>
+                      <option value={'Sandwiches'}>Pizza & Sandwiches</option>
+                      <option value={'Cake'}>Cake & Pastry</option>
+                      <option value={'Drinks'}>Drinks & Juice</option>
                       </select>
                   </div>
                  
