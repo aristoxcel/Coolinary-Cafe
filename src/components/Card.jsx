@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
 
 
 function Card({food}) {
-const {food_name,
+const {_id,
+  food_name,
     category,
     price,
     image,
@@ -47,7 +49,9 @@ const {food_name,
             </div>
    
        {/* <Link to={`craft/${_id}`}> <button className="group relative flex w-36 items-center rounded-lg border-2 border-violet-900 p-3 light:text-violet-800 dark:text-sky-200 font-medium">View Details</button></Link> */}
+       <Link to={`/details/${_id}`} className="w-full">
        <button type="submit" className=" rounded-lg text-xl w-full h-10 mt-3 text-white bg-teal-700 overflow-hidden relative z-10 group hover:text-teal-900 duration-700">Details<span className="bg-teal-600 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-50 size-[3/4] rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-500 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-100 size-72 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-400 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-200 size-52 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-300 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-300 size-36 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-100 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-[400ms] size-28 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span></button>
+       </Link>
        
         </div>
       </div>

@@ -11,6 +11,7 @@ import Contact from "../pages/Contact";
 import MyAddFood from "../pages/MyAddFood/MyAddFood";
 import AddFood from "../pages/AddFood/AddFood";
 import MyOrder from "../pages/MyOrder/MyOrder";
+import Details from "../pages/Details";
 
 
 
@@ -24,6 +25,7 @@ export const router =createBrowserRouter([
         {path:'/login', element: <Login></Login>},
         {path:'/register', element: <Register></Register>},
         {path:'/allFoods', element: <AllFoods></AllFoods>},
+        {path:'/details/:id', element: <Details></Details>},
         {path:'/gallery', element: <Gallery></Gallery>},
         {path:'/about', element: <AboutUs></AboutUs>},
         {path:'/contact', element: <Contact></Contact>},

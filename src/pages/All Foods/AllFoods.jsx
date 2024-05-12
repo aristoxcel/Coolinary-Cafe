@@ -20,7 +20,7 @@ setFoods(data)
     }
     getData()
   },[filter, sort, search])
-
+console.log(foods)
 
 const handleSearch =(e)=>{
 e.preventDefault()
