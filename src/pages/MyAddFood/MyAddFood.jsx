@@ -3,7 +3,11 @@ import Header from "../../components/Header"
 
 function MyAddFood() {
   return (
-    <div><Header image={'banner6.jpg'}  text={'My Added Food Items'}></Header></div>
+    <div>
+      <Header image={'banner6.jpg'}  text={'My Added Food Items'}></Header>
+      
+      
+    </div>
   )
 }
 
