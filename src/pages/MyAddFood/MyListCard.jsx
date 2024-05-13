@@ -33,7 +33,7 @@ const {user}= useContext(AuthContext)
     <td className="py-4 px-6 border-b text-xl font-medium">{food.food_name}</td>
     <td className="py-4 px-6 border-b text-lg font-medium">{food.price}$</td>
     <td className="py-4 px-6 border-b text-end">
-       <Link > <button className="bg-violet-900 hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md"><FaRegPenToSquare /></button></Link>
+       <Link to={`/update/${food._id}`}> <button className="bg-violet-900 hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md"><FaRegPenToSquare /></button></Link>
        <Link > <button onClick={()=>{handleDelete(food._id)}} className="bg-violet-900 hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md"><RiDeleteBin5Line /></button></Link>
     </td>
 </tr>
