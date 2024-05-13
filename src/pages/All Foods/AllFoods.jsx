@@ -20,13 +20,13 @@ setFoods(data)
     }
     getData()
   },[filter, sort, search])
-console.log(foods)
+
 
 const handleSearch =(e)=>{
 e.preventDefault()
 setSearch(searchText)
 }
-  console.log(search)
+
 
   const handleClear =()=>{
     setFilter('')
