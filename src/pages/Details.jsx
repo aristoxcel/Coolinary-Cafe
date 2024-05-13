@@ -1,9 +1,22 @@
+import { useContext } from "react"
 import { useLoaderData } from "react-router-dom"
+import { AuthContext } from "../Providers/AuthProvider"
+import toast from "react-hot-toast"
 
 
 function Details() {
   const food = useLoaderData()
- const {_id, category, cooker_name, cooker_img, count, country, food_name, image, ingredients, price, procedure, quantity}=food || {}
+  const {user}=useContext(AuthContext)
+ const {_id, category, cooker_name, cooker_img, cooker_email,count, country, food_name, image, ingredients, price, procedure, quantity}=food || {}
+
+//  const handlePurchase = async e=>{
+//   e.preventDefault()
+//   if (user?.email === cooker_email)
+//     return toast.error('Action not permitted!')
+//   const form = e.target
+//   const food_id = _id
+//   const order_quantity = parseInt(form.order_quantity.value)
+//  }
   return (
     <div>
     <section className="flex min-h-[calc(100vh-99px)]  w-full items-center justify-center bg-white px-8">
@@ -42,15 +55,17 @@ function Details() {
         </div>
         <p><span className="font-poet lg:text-lg sm:text-base text-sm text-gray-600">Procedure: </span>{procedure}</p>
         <hr />
-
-        <div className="flex space-x-2">
-          <form className="flex items-center">
+        {/* onSubmit={handlePurchase} */}
+        <div className="flex justify-between items-center space-x-2">
+          {/* <form className="flex items-center" >
             <h2 className="lg:text-lg sm:text-base text-sm text-gray-600 font-poet">Purchase Quantity</h2>
-            <input type="number" name="quantity" id="" defaultValue={1}  className="border rounded-md px-3 w-1/4 mx-4 h-10" />
-          </form>
+            <input type="number" name="order_quantity" id="" defaultValue={1}  className="border rounded-md px-3 w-1/4 mx-4 h-10" />
+            </form> */}
+          <h2 className="font-poet lg:text-lg sm:text-base text-sm text-gray-600">Available Quantity: {quantity} pcs</h2>
           <button className="inline-flex flex-nowrap items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-blue-600 text-white">
-            Purchased
+            Purchase
           </button>
+         
         </div>
         <hr />
         <p className="text-sm text-gray-500">Purchased by {count+2000}+ Food Lovers</p>

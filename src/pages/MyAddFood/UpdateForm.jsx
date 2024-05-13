@@ -1,30 +1,85 @@
 import { useContext } from "react"
 import { AuthContext } from "../../Providers/AuthProvider"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
+import axios from "axios"
+import toast from "react-hot-toast"
 
 
 function UpdateForm() {
     const {user}=useContext(AuthContext)
+    const navigate = useNavigate()
     const foods = useLoaderData()
     console.log(foods)
     const {category,
+                 _id,
                 country,
                 feedback,
                 food_name,
                 image,
                 price,
                 procedure,
-                quantity,
+                quantity }=foods || {}
 
-    }=foods || {}
+    const handleUpdateForm =async e =>{
+        e.preventDefault()
+    const form = e.target
+    const food_name = form.food_name.value
+    const cooker_email = form.cooker_email .value
+    const cooker_name = form.cooker_name.value
+    const cooker_img = user?.photoURL
+    const order_time = new Date()
+    const category = form.category.value
+    const price = parseFloat(form.price.value)
+    const image = form.image.value
+    const country = form.country.value
+    const quantity = parseInt(form.quantity.value)
+    const item1 = form.item1.value
+    const item2 = form.item2.value
+    const item3 = form.item3.value
+    const procedure = form.procedure.value
+    const feedback = form.feedback.value
+
+
+    const FoodData = {
+      food_name,
+      cooker_email,
+      cooker_name,
+      cooker_img,
+      order_time,
+      category,
+      price,
+      image,
+      country,
+      quantity,
+      ingredients:[
+        item1, item2, item3
+      ],
+      procedure,
+      feedback,
+      count: 0,
+    }
+
+    try {
+        const { data } = await axios.put(
+          `${import.meta.env.VITE_API_URL}/food/${_id}`,
+          FoodData
+        )
+        console.log(data)
+        toast.success('Food Data Updated Successfully!')
+        navigate('/my-added-food')
+      } catch (err) {
+        console.log(err)
+      }
+
+    }
   return (
     <div className="py-8 px-4 bg-teal-50">
     <div className="md:w-4/5 lg:w-3/5  mx-auto">
 
       <div className=" mx-auto text-center">
         <h1 className="text-2xl font-poet font-bold text-sky-900 text-center mb-2">Update Your Food Item</h1>
-        <form className="py-8" >
-        {/* onSubmit={handleSubmitForm} */}
+        <form className="py-8"  onSubmit={handleUpdateForm} >
+        
                          {/* Adder name and email */}
    <div className="flex gap-3  p-3 justify-between font-ubuntu">
                           <div className="relative w-full rounded-lg ">
@@ -32,7 +87,6 @@ function UpdateForm() {
                               className="font-pacific w-full peer bg-transparent px-4 py-2 text-teal-600 focus:outline-none lowercase"
                               type="text"
                               defaultValue={user?.displayName}
-                              disabled
                               name="cooker_name"
                               />
                           </div>
