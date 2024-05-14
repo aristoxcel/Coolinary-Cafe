@@ -8,33 +8,33 @@ const {_id,
     price,
     image,
     country,
-    quantity}=food
+    quantity, count}=food
   return (
     <div className="mx-auto w-full overflow-hidden flex shadow-md shadow-teal-500 hover:shadow-2xl hover:shadow-teal-600 border rounded-2xl" id="card">
     <div className="card  bg-base-100 shadow-xl flex-grow ">
       <figure className="relative" data-aos="zoom-out"
    data-aos-easing="ease-in-sine"
    data-aos-duration="300">
-          <button className="rounded px-3 font-poppins bg-violet-600 border-none text-base-300 font-bold text-xl p-[-1px] absolute right-8 top-6">{}</button>
+          <button className="rounded px-3 font-poet bg-violet-600 border-none text-base-300 font-bold text-xl p-[-1px] absolute right-8 top-6">{}</button>
         <img className="w-full object-fill h-96 overflow-hidden"
           src={image}
           alt="craft"
         />
-        {/* <div className="absolute text-xl text-white font-semibold flex gap-2  left-5 bottom-4" > <h2></h2></div> */}
+     <div className="absolute text-xl text-white font-semibold flex gap-2  left-5 bottom-4 border-2 border-amber-400 rounded-md px-2 bg-opacity-40 bg-black" > <h2>Purchased {count}..</h2></div> 
       </figure>
       <div className="card-body p-4 pb-6 ">
         <div className="space-y-1">
-        <h2 className="card-title font-poppins text-violet-900" data-aos="fade-left"
+        <h2 className="card-title font-poet text-violet-900" data-aos="fade-left"
    data-aos-anchor="#example-anchor"
    data-aos-offset="500"
    data-aos-delay="500"
   >{}</h2>
         <div className="flex md:flex-col gap-3 justify-between">
         <div className="flex justify-between">
-            <p className="font-poppins text-base-400">{food_name }</p>
-            <p className="font-poppins text-base-400">Price: {price }$</p>
+            <p className="font-poet text-base-400">Name of Food: <span className="font-ubuntu">{food_name }</span></p>
+            <p className="font-poet text-base-400">Price: <span className="font-ubuntu text-red-400 text-2xl font-semibold">{price }$</span></p>
             </div>
-        <p className="font-poppins text-base-400">{category} </p>
+        <p className="font-poet text-base-400">Category of Food: <span className="font-ubuntu">{category}</span> </p>
         </div>
         {/* <div className="flex space-x-1">
   {[1, 2, 3, 4, 5].map((star) => (
@@ -44,11 +44,12 @@ const {_id,
         </div>
         <div className="flex justify-between items-center flex-wrap">
         <div className="flex justify-between  w-full">
-            <p className="font-poppins text-base-400">{country }</p>
-            <p className="font-poppins text-base-400">Available: {quantity} Pcs</p>
-            </div>
+            <p className="font-poet text-base-400">Food Origin <span className="font-ubuntu">{country }</span></p>
+            <p className="font-poet text-base-400">Available: <span className="font-ubuntu">{quantity } Pcs</span></p>
+        </div>
+        
    
-       {/* <Link to={`craft/${_id}`}> <button className="group relative flex w-36 items-center rounded-lg border-2 border-violet-900 p-3 light:text-violet-800 dark:text-sky-200 font-medium">View Details</button></Link> */}
+
        <Link to={`/details/${_id}`} className="w-full">
        <button type="submit" className=" rounded-lg text-xl w-full h-10 mt-3 text-white bg-teal-700 overflow-hidden relative z-10 group hover:text-teal-900 duration-700">Details<span className="bg-teal-600 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-50 size-[3/4] rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-500 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-100 size-72 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-400 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-200 size-52 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-300 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-300 size-36 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span><span className="bg-teal-100 group-hover:scale-125 scale-0 ease-in-out duration-300 delay-[400ms] size-28 rounded-full absolute mx-auto my-auto inset-0 -z-10"></span></button>
        </Link>

@@ -9,9 +9,10 @@ import Chef from "../../components/Chef"
 
 function Home() {
   const [foods, setFoods]= useState([])
+
   useEffect(()=>{
     const getData=async()=>{
-const {data}= await axios(`${import.meta.env.VITE_API_URL}/food`)
+const {data}= await axios(`${import.meta.env.VITE_API_URL}/top-food`)
 setFoods(data)
     }
     getData()
@@ -25,7 +26,7 @@ console.log(foods)
       <div className="container mx-auto">
       <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 '>
    {
-    foods.slice(4,10).map(food=><Card key={food._id} food={food}></Card>)
+    foods.map(food=><Card key={food._id} food={food}></Card>)
    } 
         </div>
 {/* welcome second card */}

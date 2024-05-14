@@ -4,17 +4,15 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from 'react-hot-toast';
 import { RxGithubLogo } from "react-icons/rx";
+import axios from "axios";
+// import axios from "axios";
 
 
 function Login() {
   const navigate = useNavigate()
   const location = useLocation()
   const { signIn, signInWithGoogle, user, loading, signInWithGithub } = useContext(AuthContext)
-  useEffect(() => {
-    if (user) {
-      navigate('/')
-    }
-  }, [navigate, user])
+
   const from = location.state || '/'
 
 
@@ -29,7 +27,15 @@ function Login() {
       //User Login
       const result = await signIn(email, pass)
       console.log(result.user)
-     
+        // swt token
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      )
+     console.log(data)
       navigate(from, { replace: true })
       toast.success('Signin Successful')
     } catch (err) {
@@ -37,13 +43,21 @@ function Login() {
       toast.error(err?.message)
     }
   }
-  if (user || loading) return
+ 
   // google sign in 
   const handleGoogleSignIn = async ()=>{
     try {
       // 1. google sign in from firebase
       const result = await signInWithGoogle()
-      console.log(result.user)
+
+      //2. get token from server using email
+      // const { data } = await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/jwt`,
+      //   {
+      //     email: result?.user?.email,
+      //   },
+      //   { withCredentials: true }
+      // )
 
       toast.success('Signin Successful with Google')
       navigate(from, { replace: true })
@@ -58,16 +72,30 @@ function Login() {
             const handleSignInGithub=async ()=>{
               try {
               const result = await  signInWithGithub()
-              console.log(result)
+              
+                    // jwt
+              // const { data } = await axios.post(
+              //   `${import.meta.env.VITE_API_URL}/jwt`,
+              //   {
+              //     email: result?.user?.email,
+              //   },
+              //   { withCredentials: true }
+              // )
                 toast.success('Signin Successful with Github')
                 navigate(from, { replace: true })
              
               } catch (error) {
                 console.log(error)
-      toast.error(error?.message)
+                toast.error(error?.message)
               }
             }
-
+            // useEffect(() => {
+            //   if (user) {
+            //     navigate('/')
+            //   }
+            // }, [navigate, user])
+            if (user || loading) return
+            
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-99px)] bg-no-repeat bg-cover bg-opacity-20' style={{
       backgroundImage: `url(${'banner2.jpg'})`,

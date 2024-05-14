@@ -43,10 +43,6 @@ function Purchase() {
             console.log(data)
             toast.success('Order Placed Successfully!')
             navigate('/allFoods')
-            if (acknowledged) {
-              const { newData } = await axios.patch(`${import.meta.env.VITE_API_URL}/foods/${_id}`, { quantity });
-              console.log(newData);
-            }
             
           } catch (err) {
             toast.error(err.response.data)

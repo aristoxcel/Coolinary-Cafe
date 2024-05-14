@@ -13,6 +13,7 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import { app } from '../Firebase.config'
+import axios from 'axios'
 
 
 export const AuthContext = createContext(null)
@@ -40,21 +41,21 @@ const AuthProvider = ({ children }) => {
 
     const signInWithGoogle = () => {
       setLoading(true)
-      return signInWithPopup(auth, githubProvider)
+      return signInWithPopup(auth,  googleProvider  )
     }
 
 
     const signInWithGithub = () => {
       setLoading(true)
-      return signInWithPopup(auth, googleProvider)
+      return signInWithPopup(auth, githubProvider)
     }
 
 
     const logOut = async () => {
       setLoading(true)
-      
-
-
+      // const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+      //   withCredentials: true,
+      // })
       return signOut(auth)
     }
 

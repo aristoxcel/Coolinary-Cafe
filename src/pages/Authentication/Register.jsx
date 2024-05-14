@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import toast from 'react-hot-toast'
 import { AuthContext } from '../../Providers/AuthProvider'
 import { FcGoogle } from 'react-icons/fc'
+// import axios from 'axios'
 
 
 const Registration = () => {
@@ -27,6 +28,13 @@ const Registration = () => {
       await updateUserProfile(name, photo)
       // Optimistic UI Update
       setUser({ ...result?.user, photoURL: photo, displayName: name })
+      // const { data } = await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/jwt`,
+      //   {
+      //     email: result?.user?.email,
+      //   },
+      //   { withCredentials: true }
+      // )
  
       navigate(from, { replace: true })
       toast.success('Signup Successful')
@@ -40,7 +48,14 @@ const Registration = () => {
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithGoogle()
-      console.log(result.user)
+      
+      // const { data } = await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/jwt`,
+      //   {
+      //     email: result?.user?.email,
+      //   },
+      //   { withCredentials: true }
+      // )
 
       toast.success('Signin Successful')
       navigate(from, { replace: true })

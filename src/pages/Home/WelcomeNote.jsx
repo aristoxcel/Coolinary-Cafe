@@ -14,7 +14,7 @@ function WelcomeNote() {
         pera={"Experience the perfect blend of flavors and ambiance at Coolinary Cafe. Our menu is crafted with locally sourced ingredients to ensure a delightful dining experience.  Join us and indulge in culinary bliss!"}>
         </Headline>
 
-        <Link to={'/contact'}><button className="flex justify-center items-center gap-8 text-base-500 font-ubuntu">Join us  <HiOutlineArrowLongRight /></button></Link>
+        <Link to={'/contact'}><button className="flex justify-center items-center gap-8 text-teal-600 font-ubuntu">Join us  <HiOutlineArrowLongRight /></button></Link>
     </div>
     <div className="md:w-4/6 w-full"><img src={"https://i.ibb.co/b2Zbrdg/grill1-2.jpg"} alt="" className="rounded-2xl border-2 border-teal-800 animate:move-glow-ring"/></div>
    </div>

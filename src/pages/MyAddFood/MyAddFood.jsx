@@ -10,7 +10,7 @@ function MyAddFood() {
 
   const getData = async () => {
     const { data } = await axios(
-      `${import.meta.env.VITE_API_URL}/my-add-food/${user?.email}`
+      `${import.meta.env.VITE_API_URL}/my-add-food/${user?.email}`,{withCredentials:true}
     );
     setAdd(data);
   };

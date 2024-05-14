@@ -58,7 +58,7 @@ function Details() {
          
         </div>
         <hr />
-        <p className="text-sm text-gray-500">Purchased by {count+2000}+ Food Lovers</p>
+        <p className="text-sm text-gray-500">Purchased by {count}+ Food Lovers</p>
       </div>
       <div className="relative">  
         <img src={image} className="relative md:h-[600px]  sm:h-[500px] h-[300px]  w-[500px] bg-gray-400 rounded-b-full object-cover" alt="hero navigate ui"/>
