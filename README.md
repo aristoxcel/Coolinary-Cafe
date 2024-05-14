@@ -1,8 +1,45 @@
-# React + Vite
+# Coolinary Cafe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+My project Website based on Restaurant. This project I am using different React component library, MongoDB and google firebase.
+Coolinary Cafe is a full-stack web application built using React and Node.js, providing a platform for selling and showcasing food item. This README outlines the project structure, features, and navigation pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio_website_link-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://craftopia-62c1d.web.app/)
+
+##Catagories
+    -International Cuisine
+    -Vegan Specialties
+    -Appetizers & Starters
+    -Steaks & Grills
+    -Burgers & Fries
+    -Pizza & Sandwiches
+    -Cake & Pastry
+    -Drinks & Juice
+                   
+
+## Features and Characteristics:
+
+- Different Navigation system
+- Banner with Navigate system
+- Using mongoDB database.
+- Delete and update method implement
+-Using firebase client can login with google and github
+
+
+## Installation
+
+Package I used in my Project
+
+```bash
+    -AOS Package,
+    -React Hook Form,
+    -Swiper Slider.
+```
+
+    
+## Authors
+
+- [@Rakibul Hasan]
+
