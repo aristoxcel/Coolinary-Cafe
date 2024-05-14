@@ -26,19 +26,19 @@ function Navbar() {
 
   const links = (
     <>
-      <li>
+      <li className="hover:animate-bounce">
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li>
+      <li className="hover:animate-bounce">
         <NavLink to={"/allFoods"}>All Foods</NavLink>
       </li>
-      <li>
+      <li className="hover:animate-bounce ">
         <NavLink to={"/gallery"}>Gallery</NavLink>
       </li>
-      <li>
+      <li className="hover:animate-bounce ">
         <NavLink to={"/about"}>About Us</NavLink>
       </li>
-      <li>
+      <li className="hover:animate-bounce ">
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
     </>
@@ -52,7 +52,7 @@ function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-teal-600 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 text-teal-600 rounded-box w-52 "
           >
             {links}
           </ul>
@@ -70,7 +70,7 @@ function Navbar() {
 
 
       <div className="navbar-end text-teal-600  font-poet">
-        {!user && <NavLink to={"/login"}>Login</NavLink>}
+        {!user && <NavLink to={"/login"} className="hover:animate-bounce ">Login</NavLink>}
        {
         user && (
             <> <div className="dropdown dropdown-end z-50 text-right">
@@ -90,17 +90,17 @@ function Navbar() {
             <div className="flex ">
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-xl w-52 hover:animate-wave-glow bg-gray-900"
               >
                 <li>
-                  <Link to="/my-added-food" className="justify-between ">
+                  <Link to="/my-added-food" className="justify-between hover:animate-bounce">
                     My added food items
                   </Link>
                 </li>
-                <li>
+                <li className="hover:animate-bounce ">
                   <Link to="/add-food">Add a food item</Link>
                 </li>
-                <li>
+                <li className="hover:animate-bounce ">
                   <Link to="/my-order">My ordered food items</Link>
                 </li>
               </ul>
@@ -108,7 +108,7 @@ function Navbar() {
           </div>
           <button
               onClick={logOut}
-            className="bg-gray-200 block text-center"
+            className="bg-transparent mx-5 block text-center"
           >
             Logout
           </button></>

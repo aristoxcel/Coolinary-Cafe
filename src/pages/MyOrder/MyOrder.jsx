@@ -2,22 +2,41 @@ import { useContext, useEffect, useState } from "react"
 import Header from "../../components/Header"
 import { AuthContext } from "../../Providers/AuthProvider"
 import axios from "axios";
+import toast from "react-hot-toast";
 
 
 function MyOrder() {
   const {user} = useContext(AuthContext)
   const [items, setItems] = useState([]);
 
-useEffect(() => {
+
   const getData = async () => {
     const { data } = await axios(
       `${import.meta.env.VITE_API_URL}/order/${user?.email}`
     );
     setItems(data);
-  };
+  }; 
+
+useEffect(() => {
       getData();
     }, [user?.email])
 
+
+    // delete card
+    const handleDelete = async (id)=>{
+
+      try {
+        const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/order/${id}`)
+        console.log(data)
+        toast.success('Delete Successful')
+  
+        //refresh ui
+        getData()
+      } catch (err) {
+        console.log(err.message)
+        toast.error(err.message)
+      }
+    }
 
     // Function to format the date
 const formatDate = (purchaseTime) => {
@@ -55,7 +74,7 @@ const formatDate = (purchaseTime) => {
                 </div>
                 <div className="text-center space-y-4">
                   <h1 className="font-poet text-gray-500 text-xl">Delete your Order?</h1>
-                  <button className="btn">Delete</button>
+                  <button onClick={()=>handleDelete(item._id)} className="btn">Delete</button>
                 </div>
               </div></>
                 ))

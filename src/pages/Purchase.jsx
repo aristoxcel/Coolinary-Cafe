@@ -37,16 +37,23 @@ function Purchase() {
             count,
             quantity
           }
-          console.log(orderData)
+
           try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/order`, orderData)
             console.log(data)
             toast.success('Order Placed Successfully!')
             navigate('/allFoods')
+            if (acknowledged) {
+              const { newData } = await axios.patch(`${import.meta.env.VITE_API_URL}/foods/${_id}`, { quantity });
+              console.log(newData);
+            }
+            
           } catch (err) {
-            toast.success(err.response.data)
+            toast.error(err.response.data)
             e.target.reset()
           }
+
+        
          }
   return (
     <div className="min-h-[calc(100vh-300px)]  w-full">
