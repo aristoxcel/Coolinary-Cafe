@@ -3,12 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from 'react-hot-toast';
+import { RxGithubLogo } from "react-icons/rx";
 
 
 function Login() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { signIn, signInWithGoogle, user, loading } = useContext(AuthContext)
+  const { signIn, signInWithGoogle, user, loading, signInWithGithub } = useContext(AuthContext)
   useEffect(() => {
     if (user) {
       navigate('/')
@@ -44,13 +45,29 @@ function Login() {
       const result = await signInWithGoogle()
       console.log(result.user)
 
-      toast.success('Signin Successful')
+      toast.success('Signin Successful with Google')
       navigate(from, { replace: true })
     } catch (err) {
       console.log(err)
       toast.error(err?.message)
     }
   }
+
+
+            // Github Sign function
+            const handleSignInGithub=async ()=>{
+              try {
+              const result = await  signInWithGithub()
+              console.log(result)
+                toast.success('Signin Successful with Github')
+                navigate(from, { replace: true })
+             
+              } catch (error) {
+                console.log(error)
+      toast.error(error?.message)
+              }
+            }
+
   return (
     <div className='flex justify-center items-center min-h-[calc(100vh-99px)] bg-no-repeat bg-cover bg-opacity-20' style={{
       backgroundImage: `url(${'banner2.jpg'})`,
@@ -84,6 +101,19 @@ function Login() {
               Sign in with Google
             </span>
           </div>
+          <div title="github"
+            onClick={handleSignInGithub}
+            className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '
+          >
+            <div className='px-4 py-2 text-right '>
+            <RxGithubLogo className="text-2xl"/>
+            </div>
+
+            <span className=' px-4 py-3 font-bold text-center '>
+              Sign in with Github
+            </span>
+          </div>
+
 
           <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  lg:w-1/4'></span>

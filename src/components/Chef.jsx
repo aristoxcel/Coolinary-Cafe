@@ -21,8 +21,7 @@ function Chef() {
           <div className="absolute top-[80px]  text-center mt-2 border-2 border-b-0 border-l-0 border-r-0 rounded-md py-16 px-4 md:px-3 lg:px-5">
             <h2 className="text-xl font-semibold text-gray-600 font-poet">John Doe</h2>
             <p className="text-gray-600 font-ubuntu">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              commodo velit non neque porttitor.
+            Fantastic service, delicious food, will definitely be returning!
             </p>
           </div>
         </div>
@@ -36,10 +35,9 @@ function Chef() {
             />
           </div>
           <div className="absolute top-[80px]  text-center mt-2 border-2 border-b-0 border-l-0 border-r-0 rounded-md py-16 px-4 md:px-3 lg:px-5">
-            <h2 className="text-xl font-semibold text-gray-600 font-poet">John Doe</h2>
+            <h2 className="text-xl font-semibold text-gray-600 font-poet">Maria Kuri</h2>
             <p className="text-gray-600 font-ubuntu">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              commodo velit non neque porttitor.
+            Impressive presentation, flavorsome dishes, exceeded expectations. A must-visit spot!
             </p>
           </div>
         </div>
@@ -53,10 +51,9 @@ function Chef() {
             />
           </div>
           <div className="absolute top-[80px]  text-center mt-2 border-2 border-b-0 border-l-0 border-r-0 rounded-md py-16 px-4 md:px-3 lg:px-5">
-            <h2 className="text-xl font-semibold text-gray-600 font-poet">John Doe</h2>
+            <h2 className="text-xl font-semibold text-gray-600 font-poet">Rakib Ali</h2>
             <p className="text-gray-600 font-ubuntu">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              commodo velit non neque porttitor.
+            Cozy atmosphere, friendly staff, loved every bite. Highly recommend!
             </p>
           </div>
         </div>

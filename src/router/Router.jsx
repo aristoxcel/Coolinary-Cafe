@@ -14,6 +14,7 @@ import MyOrder from "../pages/MyOrder/MyOrder";
 import Details from "../pages/Details";
 import UpdateForm from "../pages/MyAddFood/UpdateForm";
 import Purchase from "../pages/Purchase";
+import PrivateRouter from "./PrivateRouter";
 
 
 
@@ -32,13 +33,13 @@ export const router =createBrowserRouter([
         {path:'/gallery', element: <Gallery></Gallery>},
         {path:'/about', element: <AboutUs></AboutUs>},
         {path:'/contact', element: <Contact></Contact>},
-        {path:'/my-added-food', element: <MyAddFood></MyAddFood>},
-        {path:'/update/:id', element: <UpdateForm></UpdateForm>,
+        {path:'/my-added-food', element: <PrivateRouter><MyAddFood></MyAddFood></PrivateRouter>},
+        {path:'/update/:id', element: <PrivateRouter><UpdateForm></UpdateForm></PrivateRouter>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`)},
-        {path:'/purchase/:id', element: <Purchase></Purchase>,
+        {path:'/purchase/:id', element: <PrivateRouter><Purchase></Purchase></PrivateRouter>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`)},
-        {path:'/add-food', element: <AddFood></AddFood>},
-        {path:'/my-order', element: <MyOrder></MyOrder>},
+        {path:'/add-food', element: <PrivateRouter><AddFood></AddFood></PrivateRouter>},
+        {path:'/my-order', element: <PrivateRouter><MyOrder></MyOrder></PrivateRouter>},
 
       ]
     }
