@@ -12,7 +12,7 @@ function MyOrder() {
 
   const getData = async () => {
     const { data } = await axios(
-      `${import.meta.env.VITE_API_URL}/order/${user?.email}`
+      `${import.meta.env.VITE_API_URL}/order/${user?.email}`,{withCredentials:true}
       
     );
     
@@ -66,8 +66,8 @@ const formatDate = (purchaseTime) => {
               {
                 items.map(item=>(
                   <>
-                  <div className="grid grid-cols-4 justify-center items-center border-2 border-teal-600 rounded-2xl p-4">
-                <div><img src={item.image} alt="" className="max-w-44 rounded-2xl"/></div>
+                  <div className="grid md:grid-cols-4 gap-3 justify-center items-center border-2 border-teal-600 rounded-2xl p-4">
+                <div><img src={item.image} alt="" className="md:max-w-44 w-full rounded-2xl"/></div>
                 <div className="col-span-2">
                   <h2 className="font-poet text-gray-500">Total Cost: <span className="text-teal-800">{item.price} $</span></h2>
                   <h1 className="font-poet text-gray-500">Product Name:<span className="text-teal-800">{item.food_name}</span></h1>
@@ -76,7 +76,7 @@ const formatDate = (purchaseTime) => {
                 </div>
                 <div className="text-center space-y-4">
                   <h1 className="font-poet text-gray-500 text-xl">Delete your Order?</h1>
-                  <button onClick={()=>handleDelete(item._id)} className="btn">Delete</button>
+                  <button onClick={()=>handleDelete(item._id)} className="btn w-full font-poet text-xl text-teal-700 hover:text-gray-300 hover:bg-teal-700">Delete</button>
                 </div>
               </div></>
                 ))

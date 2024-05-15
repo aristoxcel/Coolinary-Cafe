@@ -17,7 +17,7 @@ setFoods(data)
     }
     getData()
   },[])
-console.log(foods)
+
   return (
     <div>
       <Banner/>

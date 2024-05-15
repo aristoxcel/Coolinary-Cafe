@@ -10,11 +10,19 @@ const Slide = ({ image, text , text1 }) => {
     >
       <div className='absolute inset-0 bg-gray-900/50 flex justify-center items-center'>
         <div className='text-center p-6'>
-          <h1 className='text-2xl text-base-300 font-normal  font-pacific  lg:text-5xl'>
+          <h1 data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" className='text-2xl text-base-300 font-normal  font-pacific  lg:text-5xl'>
             {text}
           </h1>
+
+          
           <br />
-          <h1 className='text-3xl font-medium font-poet text-white lg:text-7xl'>
+          <h1 data-aos="fade-right"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" className='text-3xl font-medium font-poet text-white lg:text-7xl'>
             {text1}
           </h1>
           <br />

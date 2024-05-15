@@ -53,12 +53,17 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
       setLoading(true)
-      // const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
-      //   withCredentials: true,
-      // })
-      return signOut(auth)
-    }
-
+      try {
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/logout`, {
+          withCredentials: true
+        });
+        console.log(data)
+        await signOut(auth)
+      }
+       catch (error) {
+        console.error(error)
+      }
+    };
 
     const updateUserProfile = (name, photo) => {
       return updateProfile(auth.currentUser, {
@@ -72,14 +77,28 @@ const AuthProvider = ({ children }) => {
       // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
+      console.log(currentUser)
+      const userEmail = currentUser?.email || user?.email
+      const loggedUser = {email:userEmail}
       setUser(currentUser)
+      if(currentUser){
+        axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, {withCredentials:true})
+        .then(res=>{
+          console.log(res.data)
+        })
+      }
+      else{
+        axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, {withCredentials:true})
+        .then(res=>{
+          console.log(res.data)
+      })}
       console.log('CurrentUser-->', currentUser)
       setLoading(false)
     })
     return () => {
       return unsubscribe()
     }
-  }, [])
+  }, [user?.email])
 
 
 

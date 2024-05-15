@@ -47,7 +47,7 @@ function Navbar() {
     <div className={`navbar bg-base-100 relative sticky top-0 z-[999]  ${scrolled ? 'bg-gray-900' : 'bg-transparent'}`}>
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn bg-base-300 lg:hidden">
+          <div tabIndex={0} role="button" title="Menu" className="btn bg-teal-700 border-none hover:transition-transform  hover:text-teal-500 lg:hidden m-2 p-2">
           <PiCirclesThreeBold className="text-2xl"/>
           </div>
           <ul
