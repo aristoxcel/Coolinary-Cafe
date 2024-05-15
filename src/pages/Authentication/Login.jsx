@@ -1,11 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from 'react-hot-toast';
 import { RxGithubLogo } from "react-icons/rx";
-import axios from "axios";
-// import axios from "axios";
+
 
 
 function Login() {
@@ -22,11 +21,10 @@ function Login() {
     const form = e.target
     const email = form.email.value
     const pass = form.password.value
-    console.log({ email, pass })
+
     try {
       //User Login
       const result = await signIn(email, pass)
-      console.log(result.user)
       navigate(from, { replace: true })
       toast.success('Signin Successful')
     } catch (err) {

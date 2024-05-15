@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Banner from "../../components/Banner"
 import Headline from "../../components/Headline"
 import WelcomeNote from "./WelcomeNote"
@@ -9,6 +9,7 @@ import Chef from "../../components/Chef"
 
 function Home() {
   const [foods, setFoods]= useState([])
+
 
   useEffect(()=>{
     const getData=async()=>{

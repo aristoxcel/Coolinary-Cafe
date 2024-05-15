@@ -9,7 +9,6 @@ function UpdateForm() {
     const {user}=useContext(AuthContext)
     const navigate = useNavigate()
     const foods = useLoaderData()
-    console.log(foods)
     const {category,
                  _id,
                 country,
@@ -64,7 +63,6 @@ function UpdateForm() {
           `${import.meta.env.VITE_API_URL}/food/${_id}`,
           FoodData
         )
-        console.log(data)
         toast.success('Food Data Updated Successfully!')
         navigate('/my-added-food')
       } catch (err) {

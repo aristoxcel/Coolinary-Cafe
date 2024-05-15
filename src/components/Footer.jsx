@@ -1,4 +1,4 @@
-import { GiSolidLeaf } from "react-icons/gi";
+
 import { FaTwitter } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { FaSquareFacebook } from "react-icons/fa6";
@@ -16,7 +16,7 @@ function Footer() {
     <div className="w-full text-right"><h6 className="text-gray-300 font-ubuntu text-right">Best Restaurent</h6> </div>
     <div className="w-full text-right"><p className="text-gray-300 font-ubuntu">In City of Newyork, USA</p></div>
     <a className="link link-hover text-gray-300 font-poet">Coolinary Cafe, A name of Excellence</a>
-    <div className="w-full text-right"><p className="text-gray-300 font-ubuntu">N-106y</p></div>
+    <div className="w-full text-right"><p className="text-gray-300 font-ubuntu">Created: Rakib Hasan</p></div>
     <div className="w-full text-right"><Link to={'/'} className="link link-hover text-gray-300 font-ubuntu">Home</Link></div>
   </nav> 
   <nav data-aos="fade-down"
@@ -39,8 +39,8 @@ function Footer() {
      data-aos-delay="600">
     <h6 className="font-poet text-amber-500">+880 1911 309454</h6> 
     <a className="link link-hover text-white font-poet">WWW.COOLINARYCAFE.COM</a>
-    <a className="text-gray-300 font-ubuntu">ABC Road, Gandaria, Dhaka</a>
-    <Link to={'/contact'} className="text-gray-300 font-ubuntu">Contact Us</Link>
+    <p className="text-gray-300 font-ubuntu">ABC Road, Gandaria, Dhaka</p>
+    <Link to={'/contact'} className="text-gray-300 font-ubuntu link link-hover ">Contact Us</Link>
   </nav>
 </footer> 
 <div className="bg-gradient-to-r from-base-300 to-gray-400">

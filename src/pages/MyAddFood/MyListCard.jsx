@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
+
 import { Link } from "react-router-dom"
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 function MyListCard({food, getData}) {
@@ -11,10 +13,8 @@ const {user}= useContext(AuthContext)
 
 
   const handleDelete = async (id)=>{
-    console.log(id)
     try {
       const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/my-add-food/${id}`)
-      console.log(data)
       toast.success('Delete Successful')
 
       //refresh ui

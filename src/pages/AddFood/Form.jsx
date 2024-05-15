@@ -53,7 +53,6 @@ function Form() {
         `${import.meta.env.VITE_API_URL}/food`,
         FoodData
       )
-      console.log(data)
       toast.success('Food Data Updated Successfully!')
       navigate('/my-added-food')
     } catch (err) {

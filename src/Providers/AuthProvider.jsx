@@ -57,7 +57,6 @@ const AuthProvider = ({ children }) => {
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/logout`, {
           withCredentials: true
         });
-        console.log(data)
         await signOut(auth)
       }
        catch (error) {
@@ -77,7 +76,6 @@ const AuthProvider = ({ children }) => {
       // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      console.log(currentUser)
       const userEmail = currentUser?.email || user?.email
       const loggedUser = {email:userEmail}
       setUser(currentUser)
@@ -92,7 +90,6 @@ const AuthProvider = ({ children }) => {
         .then(res=>{
           console.log(res.data)
       })}
-      console.log('CurrentUser-->', currentUser)
       setLoading(false)
     })
     return () => {

@@ -29,7 +29,6 @@ function Gallery() {
         `${import.meta.env.VITE_API_URL}/feedback`,
         feedbackData
       )
-      console.log(data)
       toast.success('Thanks for your feedback!')
 
       e.target.reset()
@@ -37,11 +36,8 @@ function Gallery() {
       console.log(err)
     }
     console.table(feedbackData)
-
     }
 
- 
- 
   useEffect(()=>{
     const getData=async()=>{
 const {data}= await axios(`${import.meta.env.VITE_API_URL}/feedback`)
@@ -49,7 +45,7 @@ setComment(data)
     }
     getData()
   },[])
-  console.log(comment)
+
   return (
     <div>
       <div> <Header image={'banner3.jpg'} text={'Gallery'}></Header></div>
@@ -60,7 +56,7 @@ setComment(data)
         {/* modal start here */}
         <div className="mx-auto flex w-full items-center justify-end">
       
-        <button onClick={() => setOpenModal(true)}  className="group relative z-10 py-2 w-32 overflow-hidden  tracking-wider rounded-md  bg-teal-700 text-xl text-white"><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-100 transition-transform duration-700 group-hover:scale-x-100 group-hover:duration-300"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-600 transition-transform duration-500 group-hover:scale-x-100 group-hover:duration-700"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-900 transition-transform duration-300 group-hover:scale-x-50 group-hover:duration-500"></span><span className="absolute z-10 text-center text-white opacity-0 duration-100 ease-out group-hover:opacity-100 group-hover:duration-700">Feedback</span>Feedback</button>
+        <button disabled={!user} onClick={() => setOpenModal(true)}  className="group relative z-10 py-2 w-32 overflow-hidden  tracking-wider rounded-md  bg-teal-700 text-xl text-white"><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-100 transition-transform duration-700 group-hover:scale-x-100 group-hover:duration-300"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-600 transition-transform duration-500 group-hover:scale-x-100 group-hover:duration-700"></span><span className="absolute -inset-8 origin-left rotate-12 scale-x-0 transform bg-teal-900 transition-transform duration-300 group-hover:scale-x-50 group-hover:duration-500"></span><span className="absolute z-10 text-center text-white opacity-0 duration-100 ease-out group-hover:opacity-100 group-hover:duration-700">Feedback</span>Feedback</button>
         <div onClick={() => setOpenModal(false)} className={`fixed z-[100] flex items-center justify-center ${openModal ? 'opacity-1 visible' : 'invisible opacity-0'} inset-0 h-full w-full bg-black/20 backdrop-blur-sm duration-100`}>
           <div onClick={(e_) => e_.stopPropagation()} className={`absolute w-full rounded-lg bg-white dark:bg-gray-900 drop-shadow-2xl sm:w-[500px] ${openModal ? 'opacity-1 translate-y-0 duration-300' : '-translate-y-20 opacity-0 duration-150'}`}>
             <form onSubmit={handleFeedback} className="px-5 pb-5 pt-3 lg:pb-10 lg:pt-5 lg:px-10">

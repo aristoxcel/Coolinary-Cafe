@@ -7,7 +7,7 @@ import { Link, useLoaderData } from "react-router-dom"
 function Details() {
   const food = useLoaderData()
   
- const {_id, category, cooker_name, cooker_img, cooker_email,count, country, food_name, image, ingredients, price, procedure, quantity}=food || {}
+ const {_id, category, cooker_name, cooker_img, count, country, food_name, image, ingredients, price, procedure, quantity}=food || {}
 
 //
   return (

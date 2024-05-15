@@ -29,7 +29,6 @@ useEffect(() => {
 
       try {
         const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/order/${id}`)
-        console.log(data)
         toast.success('Delete Successful')
   
         //refresh ui

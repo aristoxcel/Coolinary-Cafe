@@ -40,7 +40,6 @@ function Purchase() {
 
           try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/order`, orderData)
-            console.log(data)
             toast.success('Order Placed Successfully!')
             navigate('/allFoods')
             
