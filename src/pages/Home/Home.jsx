@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import Marquee from "react-fast-marquee";
 import Banner from "../../components/Banner"
 import Headline from "../../components/Headline"
 import WelcomeNote from "./WelcomeNote"
@@ -46,6 +47,14 @@ setFoods(data)
   <hr />
   <Chef/>
       </div>
+      <Marquee>
+    <img src={"lg.png"} alt="" className="w-28 mr-24  rounded-2xl"/>
+    <a href="https://craftopia-62c1d.web.app"> <img src={"brand.png"} href alt="" className="w-28 mr-24 rounded-2xl"/></a>
+    <img src={"https://i.ibb.co/Rptmkrk/images-1.png"} alt=""className="w-28 mr-24 rounded-2xl" />
+    <img src={"https://i.ibb.co/KK18V2Z/images.jpg"} alt="" className="w-24 mr-24 rounded-2xl"/>
+    <a href="https://craftopia-62c1d.web.app"> <img src={"brand.png"} href alt="" className="w-28 mr-24 rounded-2xl"/></a>
+    <img src={"https://i.ibb.co/jMj2Ssv/images.png"} alt=""className="w-28 rounded-2xl" />
+  </Marquee>
       </div>
   )
 }
