@@ -1,0 +1,80 @@
+/* Banner.css */
+.mySwiper {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Add a dark overlay */
+  }
+  
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .animated-text {
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .animated-text1 {
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  
+  .slide-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e63946;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .slide-button:hover {
+    background-color: #d62839;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Custom Styles for Swiper Navigation and Pagination */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #0d9488; /* teal-600 */
+}
+
+.swiper-pagination-bullet {
+  background-color: #0d9488; /* teal-600 */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0f766e; /* darker teal for active state */
+}

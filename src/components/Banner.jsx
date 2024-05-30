@@ -6,11 +6,11 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import './Banner.css'
 
 
 // import required modules
-import { EffectFade, Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { EffectFade, Autoplay, Navigation, Pagination, Parallax  } from 'swiper/modules';
 import Slide from './Slide';
 
 export default function Banner() {
@@ -18,6 +18,22 @@ export default function Banner() {
     <div className='relative top-[-99px]'>
       <>
       <Swiper
+        spaceBetween={30}
+        effect={'fade'}
+        loop={true}
+        navigation={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[EffectFade, Autoplay, Navigation, Pagination, Parallax]}
+        className="mySwiper"
+        parallax={true}
+      >
+      {/* <Swiper
         spaceBetween={30}
         effect={'fade'}
         loop={true}
@@ -31,7 +47,7 @@ export default function Banner() {
         }}
         modules={[EffectFade,Autoplay,  Navigation, Pagination]}
         className="mySwiper"
-      >
+      > */}
         <SwiperSlide>
         <Slide
             image={'banner5.jpg'}

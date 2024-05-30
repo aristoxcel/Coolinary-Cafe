@@ -3,15 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from 'react-hot-toast';
-import { RxGithubLogo } from "react-icons/rx";
+// import { RxGithubLogo } from "react-icons/rx";
 
 
 
 function Login() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { signIn, signInWithGoogle, user, loading, signInWithGithub } = useContext(AuthContext)
-
+  const { signIn, signInWithGoogle, user, loading, } = useContext(AuthContext)
+  // signInWithGithub 
   const from = location.state || '/'
 
 
@@ -58,9 +58,9 @@ function Login() {
 
 
             // Github Sign function
-            const handleSignInGithub=async ()=>{
-              try {
-              const result = await  signInWithGithub()
+            // const handleSignInGithub=async ()=>{
+            //   try {
+            //   const result = await  signInWithGithub()
               
                     // jwt
               // const { data } = await axios.post(
@@ -70,14 +70,14 @@ function Login() {
               //   },
               //   { withCredentials: true }
               // )
-                toast.success('Signin Successful with Github')
-                navigate(from, { replace: true })
+            //     toast.success('Signin Successful with Github')
+            //     navigate(from, { replace: true })
              
-              } catch (error) {
-                console.log(error)
-                toast.error(error?.message)
-              }
-            }
+            //   } catch (error) {
+            //     console.log(error)
+            //     toast.error(error?.message)
+            //   }
+            // }
             // useEffect(() => {
             //   if (user) {
             //     navigate('/')
@@ -118,7 +118,7 @@ function Login() {
               Sign in with Google
             </span>
           </div>
-          <div title="github"
+          {/* <div title="github"
             onClick={handleSignInGithub}
             className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '
           >
@@ -129,7 +129,7 @@ function Login() {
             <span className=' px-4 py-3 font-bold text-center '>
               Sign in with Github
             </span>
-          </div>
+          </div> */}
 
 
           <div className='flex items-center justify-between mt-4'>
